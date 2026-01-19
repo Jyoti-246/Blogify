@@ -20,7 +20,7 @@ const Navbar = () => {
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
             <button className="btn bg-blue-500 px-2 py-1 rounded-md">
-              Open Blog Form
+              Create blog
             </button>
           </DialogTrigger>
 
