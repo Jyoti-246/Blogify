@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { Blog } from "../types/blog";
 
-const API_URL = "http://localhost:3001/blogs";
+const API_URL = "http://192.168.29.243:3001/blogs";
 
 export const getBlogs = async (): Promise<Blog[]> => {
   const res = await axios.get(API_URL);
