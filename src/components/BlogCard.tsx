@@ -7,6 +7,9 @@ import {
   CardDescription,
   CardFooter,
 } from "@/components/ui/card";
+// import { deleteBlog } from "@/api/blogApi";
+// import { useMutation, useQueryClient } from "@tanstack/react-query";
+// import { Button } from "./ui/button";
 
 interface BlogCardProps {
   blog: Blog;
@@ -16,16 +19,32 @@ const BlogCard = ({ blog }: BlogCardProps) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const blogId = searchParams.get("blog");
   const dateObj = new Date(blog.date);
+  // const queryClient = useQueryClient();
 
   const handleClick = () => {
     setSearchParams({ blog: String(blog.id) });
   };
+
+  // const mutation = useMutation({
+  //   mutationFn: () => deleteBlog(String(blog?.id)),
+  //   onSuccess: () => {
+  //     queryClient.invalidateQueries({ queryKey: ["blogs"] });
+  //     // navigate("/");
+  //   },
+  // });
 
   return (
     <Card
       className={`${blogId && "hidden"} md:block w-full max-w-sm border border-gray-500`}
       onClick={handleClick}
     >
+      {/* <Button
+        variant="destructive"
+        className="bg-red-500"
+        onClick={() => mutation.mutate()}
+      >
+        Delete
+      </Button> */}
       <CardHeader>
         <CardTitle className="text-gray-800 text-xl font-bold">
           {blog.title}
