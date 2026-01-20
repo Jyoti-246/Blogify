@@ -8,7 +8,7 @@ function App() {
     <>
       <div className="">
         <Navbar />
-        <div className="flex m-8 divide-x divide-gray-300 bg-gray-50 max-h-[calc(100vh-156px)]">
+        <div className="flex m-8 md:divide-x divide-gray-300 bg-gray-50 max-h-[calc(100vh-156px)]">
           <BlogList />
           <BlogDetail />
         </div>

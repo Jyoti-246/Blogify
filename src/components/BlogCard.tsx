@@ -13,7 +13,8 @@ interface BlogCardProps {
 }
 
 const BlogCard = ({ blog }: BlogCardProps) => {
-  const [, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const blogId = searchParams.get("blog");
   const dateObj = new Date(blog.date);
 
   const handleClick = () => {
@@ -22,7 +23,7 @@ const BlogCard = ({ blog }: BlogCardProps) => {
 
   return (
     <Card
-      className="w-full max-w-sm border border-gray-500"
+      className={`${blogId && "hidden"} md:block w-full max-w-sm border border-gray-500`}
       onClick={handleClick}
     >
       <CardHeader>
