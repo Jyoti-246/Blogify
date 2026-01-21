@@ -7,6 +7,7 @@ import {
   CardDescription,
   CardFooter,
 } from "@/components/ui/card";
+import Tag from "./ui/Tag";
 
 interface BlogCardProps {
   blog: Blog;
@@ -27,6 +28,11 @@ const BlogCard = ({ blog }: BlogCardProps) => {
       onClick={handleClick}
     >
       <CardHeader>
+        <div className="flex gap-2 flex-wrap">
+          {blog.category.map((tag) => (
+            <Tag key={tag} label={tag} />
+          ))}
+        </div>
         <CardTitle className="text-gray-800 text-xl font-bold">
           {blog.title}
         </CardTitle>

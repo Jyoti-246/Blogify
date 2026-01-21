@@ -27,6 +27,7 @@ export const BlogForm = ({ onSuccess }: Props) => {
   const [description, setDescription] = useState("");
   const [content, setContent] = useState("");
   const [coverImage, setCoverImage] = useState<string>("");
+  const [categories, setCategories] = useState<string[]>([]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,8 +36,8 @@ export const BlogForm = ({ onSuccess }: Props) => {
       title,
       description,
       content,
+      category: categories,
       coverImage,
-      category: [],
       date: new Date().toISOString(),
     });
   };
@@ -75,6 +76,16 @@ export const BlogForm = ({ onSuccess }: Props) => {
       />
 
       <input
+        value={categories}
+        placeholder="Categories (e.g. FINANCE, TECH)"
+        onChange={(e) =>
+          setCategories(
+            e.target.value.split(",").map((t) => t.trim().toUpperCase()),
+          )
+        }
+      />
+
+      <input
         type="file"
         accept="image/*"
         onChange={(e) => {
@@ -101,9 +112,6 @@ export const BlogForm = ({ onSuccess }: Props) => {
       >
         {mutation.isPending ? "Creating..." : "Create Blog"}
       </Button>
-      {/* <button type="submit" className="btn" disabled={mutation.isPending}>
-        {mutation.isPending ? "Creating..." : "Create Blog"}
-      </button> */}
     </form>
   );
 };
