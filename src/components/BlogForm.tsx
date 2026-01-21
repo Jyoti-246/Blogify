@@ -48,7 +48,7 @@ export const BlogForm = ({ onSuccess }: Props) => {
       setCoverImage(reader.result as string);
     };
 
-    reader.readAsDataURL(file); // 🔥 must be this
+    reader.readAsDataURL(file);
   };
 
   return (
